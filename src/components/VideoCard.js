@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
 
-const VideoCard = ({info}) => {
+const VideoCard = ({ info }) => {
+  const { snippet, statistics } = info;
 
-  const {snippet, statistics} = info;
-
-  const {channelTitle, title, thumbnails} = snippet;
-  const {viewCount} = statistics
+  const { channelTitle, title, thumbnails } = snippet;
+  const { viewCount } = statistics;
   let formattedViewCount;
 
   if (viewCount >= 1000000) {
@@ -17,21 +16,15 @@ const VideoCard = ({info}) => {
   }
 
   return (
-    <div className='p-2 m-2 w-72 shadow-lg'>
-      <img className='rounded-lg' alt="thumbnail" src={thumbnails.medium.url}/>
+    <div className="p-2 m-2 w-72 shadow-lg">
+      <img className="rounded-lg" alt="thumbnail" src={thumbnails.medium.url} />
       <ul>
-        <li className='font-bold'>
-          {title}
-        </li>
-        <li>
-          {channelTitle}
-        </li>
-        <li>
-            {formattedViewCount}
-        </li>
+        <li className="font-bold">{title}</li>
+        <li>{channelTitle}</li>
+        <li>{formattedViewCount}</li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default VideoCard
+export default VideoCard;
